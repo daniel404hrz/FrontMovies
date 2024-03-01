@@ -1,15 +1,25 @@
-import { useState } from 'react'
+import React from 'react';
+import './App.css';
 
+import Home from './components/home/Home';
+import Navbar from './components/navbar/Navbar';
+import {  Route, Routes } from 'react-router-dom';
 
-import './App.css'
 
 function App() {
-  
   return (
-    <div>
-      hola mundo
-    </div>
-  )
+    
+      <div>
+        <Navbar />
+        <Routes>
+          
+          <Route path="/" element={<Home />} />
+          
+
+        </Routes>
+      </div>
+    
+  );
 }
 
-export default App
+export default App;
