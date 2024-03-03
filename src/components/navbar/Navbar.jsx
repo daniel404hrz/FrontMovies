@@ -5,7 +5,9 @@ export default function Navbar() {
     <header className={styles.nav_box}>
       
       <nav className={styles.links_box}>
+      <p className={styles.title}>HappyMovies</p>
         <ul>
+          
           <li>
             <Link to="/" className={styles.link}>Home</Link>
           </li>
@@ -17,8 +19,8 @@ export default function Navbar() {
           </li>
         </ul>
         <div className={styles.button_box}>
-        <button >Iniciar session</button>
-        <button>registrase</button>
+        <Link to="/login" ><button>Iniciar sesión</button></Link>
+        <Link to="/login/create" ><button>Registrase</button></Link>
         </div>
         
       </nav>

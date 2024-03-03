@@ -1,0 +1,102 @@
+.box_container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+   
+}
+label {
+  user-select: none;
+}
+
+.formContainer {
+    height: fit-content;
+   width: 300px;
+   padding: 3%;
+   padding-top: 0;
+    margin-bottom: 70px;
+    background-color: rgba(255, 255, 255, 0.5); /* Ajusta el valor alfa para controlar el nivel de difuminado */
+    backdrop-filter: blur(10px); /* Ajusta el valor de blur según tus preferencias */
+border-radius: 8px;
+
+  }
+  .formContainer h2{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 1.3em;
+  }
+  
+  .inputGroup {
+    
+    position: relative;
+    margin-bottom: 1.25rem;
+  }
+  .inputGroup span{
+    margin-top: 20px;
+    color: red;
+  }
+  
+  .inputField {
+    color: black;
+    padding: 0.625rem 0;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    background: transparent;
+    border: 0;
+    border-bottom: 0.125rem solid #ccc;
+    appearance: none;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .inputField:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .label {
+    position: absolute;
+    left: 0%;
+    font-size: 1rem;
+    color: black;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: 0 100%;
+    top: 0.75rem;
+  }
+  
+  .inputField:focus + .label,
+  .inputField:not(:placeholder-shown) + .label {
+    transform: translateY(-1.5rem) scale(0.75);
+    opacity: 0.8;
+  }
+  
+  .button {
+    background-color: #0099ff !important;
+    border-color: #000;
+   
+  }
+  
+  .button:hover {
+    background-color: #58bcff !important;
+    color: #000;
+  }
+  .button_see{
+    display: flex;
+    color: black;
+    gap: 5px;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  .button_see input {
+    width: 16px;
+   
+  }
+  
+  
+  .inputField:-webkit-autofill {
+    font-size: inherit; /* Mantén el tamaño de la fuente original */
+    color: inherit; /* Mantén el color de la fuente original */
+    /* Otros estilos que desees mantener o personalizar */
+  }
