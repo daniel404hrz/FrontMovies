@@ -1,10 +1,13 @@
 import styles from "./form.module.css";
 import { useState } from "react";
 import verify from "./verify";
-import axios from "axios";
-import { login, register } from "../../firebase/bd";
-import { useNavigate } from 'react-router-dom';
+import { login, register } from "../../redux/bd";
+import { useNavigate } from "react-router-dom";
+import { setUser } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 export default function LoginREG({ isCreate }) {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const [seePAS, setPAS] = useState(false);
@@ -12,7 +15,7 @@ export default function LoginREG({ isCreate }) {
     name: "",
     gmail: "",
     password: "",
-    rol:"user"
+    rol: "user",
   });
   const [error, setError] = useState({
     name: "",
@@ -34,24 +37,26 @@ export default function LoginREG({ isCreate }) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Verifica si hay errores antes de enviar la solicitud
     if (!Object.values(error).some((errorMsg) => errorMsg)) {
       try {
-        if(isCreate){
-          await register(form)
+        if (isCreate) {
+          const data = await register(form)
+          
+          dispatch(setUser(data));
+          
           alert("done");
-          navigate('/rentas');
 
+          navigate("/");
         } else {
-          // Si es un inicio de sesión, realiza el inicio de sesión y luego la solicitud Axios
-          await login(form);
-         alert("done")
-         navigate('/');
+          const data = await login(form)
+          dispatch(setUser(data));
           
-          
+          alert("done");
+
+          navigate("/");
         }
-    
       } catch (error) {
         console.error("Error al realizar la solicitud:", error);
         // Aquí puedes manejar de manera específica cualquier error que pueda ocurrir durante la solicitud
