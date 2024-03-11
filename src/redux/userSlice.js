@@ -2,33 +2,31 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Define el estado inicial del slice
 const initialState = {
-  name: false,
-  login: false,
-  id: false,
-  rol:false
+  userLocal:{},
+  login:false,
+  id:''
+
 };
 
 // Crea un slice de Redux Toolkit
 const userSlice = createSlice({
   name: 'user', // Nombre del slice
-  initialState,  // Estado inicial
+  initialState,
   reducers: {
     // Define acciones (reducers) aquí
     setUser: (state, action) => {
-       
-      state.name = action.payload.userData.nombre;
+      const { userData } = action.payload;
+      
+      state.userLocal = userData;
       state.id = action.payload.id;
       state.login = true;
-      state.rol = action.payload.userData.rol
+      
     },
     setDelUser: (state, action) => {
-       
-      state.name = false;
-      state.id = false;
-      state.login = false;
-      state.rol = false
+      state.userLocal = {};
+      state.login=false
+      
     },
-    
     // Agrega más acciones según sea necesario
   },
 });

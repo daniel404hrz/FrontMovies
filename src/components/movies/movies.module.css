@@ -1,0 +1,52 @@
+.movie_box{
+    display: flex;
+    gap: 50px;
+    margin: 30px;
+    justify-content: center;
+    
+}
+.precios{
+   margin: 30px 0px;
+    font-size: 1.2em;
+   
+}
+.precio_spans{
+    display: flex;
+    gap: 20px;
+}
+.movie_texts{
+    width: 40%;
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+    
+    justify-content: flex-end;
+}
+@media screen and (max-width: 500px) {
+   .movie_box{
+   
+    
+    margin: 5px;
+    margin-top: 20px;
+    font-size: 0.6em;
+    gap: 10px;
+   }
+   
+   p {
+    font-size: 1.5em;
+   }
+   .imagen{
+    width: 130px;
+    
+   
+    
+   }
+   .movie_texts{
+    width: fit-content;
+}
+  }
+.movie_texts p{
+    margin-top: 40px;
+
+}

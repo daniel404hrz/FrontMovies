@@ -28,7 +28,7 @@ const auth = getAuth(app);
 export const register = async (userCre) => {
   try {
     const { gmail, password, rol, name } = userCre;
-    const url = "http://localhost:3000/user";
+    
     const logUrl = "http://localhost:3000/auth/login"
     const userCredential = await createUserWithEmailAndPassword(auth, gmail, password);
     const id = userCredential.user.uid;
@@ -57,7 +57,7 @@ export const login = async (userCre) => {
 
     const response = await axios.get(`${url}/${id}`);
     await axios.post(logUrl, { id }).then((res)=>{
-      console.log(res.data.token);
+      
       Cookies.set('localSession', res.data.token);
     });
     

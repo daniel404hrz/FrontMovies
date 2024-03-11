@@ -46,14 +46,14 @@ export default function LoginREG({ isCreate }) {
           
           dispatch(setUser(data));
           
-          alert("done");
-
+          
           navigate("/");
         } else {
           const data = await login(form)
+          
           dispatch(setUser(data));
           
-          alert("done");
+          
 
           navigate("/");
         }
