@@ -8,4 +8,11 @@
 
 
 }
+.navbar_movile{
+  height: fit-content !important;
+}
+.button_logout{
+  width: fit-content;
+  margin-top: 10px;
+}
   

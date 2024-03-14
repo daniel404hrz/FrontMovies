@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Define el estado inicial del slice
 const initialState = {
-  movies:{}
+  movies:{},
+  movie:{hola:"hola"}
 };
 
 // Crea un slice de Redux Toolkit
@@ -14,7 +15,10 @@ const moviesSlice = createSlice({
     setMovies: (state, action) => {
       state.movies = action.payload;
       
-    },
+    },setMov: (state,action)=>{
+      state.movie = action.payload
+    }
+    
     
     
     // Agrega más acciones según sea necesario
@@ -22,7 +26,7 @@ const moviesSlice = createSlice({
 });
 
 // Exporta las acciones del slice
-export const { setMovies} = moviesSlice.actions;
+export const { setMovies, setMov} = moviesSlice.actions;
 
 // Exporta el reducer del slice
 export default moviesSlice.reducer;

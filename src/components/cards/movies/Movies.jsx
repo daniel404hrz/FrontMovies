@@ -17,8 +17,9 @@ export default function Movies({ movies, handleLikeMovie }) {
   const user = useSelector((state) => state.user);
  
     const likeFun = (id, userLikes) => {
-      if (user.login) {
-      handleLikeMovie(id, userLikes.includes(user.id) ? "false" : "true", user.id);
+      if (user.userLocal.login) {
+        
+      handleLikeMovie(id, userLikes.includes(user.userLocal.id) ? "false" : "true", user.userLocal.id);
     }else {
       return
     
@@ -35,22 +36,22 @@ export default function Movies({ movies, handleLikeMovie }) {
           
             <Card 
               isFooterBlurred
-              className="w-full h-[300px] col-span-12 sm:col-span-5 transition-transform duration-200 ease-in-out hover:scale-105"
+              className="  transition-transform duration-200 ease-in-out hover:scale-105"
             >
               <button
-                className={`${styles.likes} select-none`}
+                className={`${styles.likes}`}
                 onClick={() => likeFun(movie[1][0], movie[1][1].userLikes)}
               >
-                { movie[1][1].userLikes.includes(user.id)
+                { movie[1][1].userLikes.includes(user.userLocal.id)
                   ? "💙 " + movie[1][1].likes
                   : "🖤 " + movie[1][1].likes}
               </button>
               <CardHeader className="absolute z-10 top-1 flex-col items-start"></CardHeader>
-              <Link className="z-0 w-full h-full" to={`/movie/${movie[1][0]}`}>
+              <Link className="z-0 " to={`/movie/${movie[1][0]}`}>
               <Image
-                removeWrapper
+                
                 alt="Card example background"
-                className="z-0 w-full h-full scale-125 -translate-y-3 object-cover"
+                className="z-0  scale-125 -translate-y-3 object-cover"
                 src={movie[1][1].imagen}
               />
               </Link>
@@ -58,7 +59,7 @@ export default function Movies({ movies, handleLikeMovie }) {
                 <div>
                   <h5 className="text-black text-sm">{movie[1][1].titulo}</h5>
                 </div>
-                <Link to={`/movie/${movie[1][0]}`}>
+                <Link className={styles.buyButton} to={`/movie/${movie[1][0]}`}>
                 <Button
                   className="text-tiny"
                   color="primary"

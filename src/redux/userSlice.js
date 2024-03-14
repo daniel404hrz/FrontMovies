@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // Define el estado inicial del slice
 const initialState = {
   userLocal:{},
-  login:false,
-  id:''
+  
 
 };
 
@@ -17,14 +16,13 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       const { userData } = action.payload;
       
-      state.userLocal = userData;
-      state.id = action.payload.id;
-      state.login = true;
+      state.userLocal = {...userData,id:action.payload.id,login:true};
+      
       
     },
     setDelUser: (state, action) => {
       state.userLocal = {};
-      state.login=false
+      
       
     },
     // Agrega más acciones según sea necesario

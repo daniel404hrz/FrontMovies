@@ -22,7 +22,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      if (localCookie && !user.login) {
+      if (localCookie && !user.userLocal.login) {
         const resAuth = await axios.get(`http://localhost:3000/user/1`);
         dispatch(setUser(resAuth.data));
       }

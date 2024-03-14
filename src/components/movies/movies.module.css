@@ -7,7 +7,8 @@
 }
 .precios{
    margin: 30px 0px;
-    font-size: 1.2em;
+   margin-bottom: 10px;
+    font-size: 1em;
    
 }
 .precio_spans{
@@ -15,7 +16,8 @@
     gap: 20px;
 }
 .movie_texts{
-    width: 40%;
+    width: 50%;
+    
 }
 .buttons{
     display: flex;
@@ -27,23 +29,32 @@
    .movie_box{
    
     
-    margin: 5px;
+    margin: 20px;
     margin-top: 20px;
     font-size: 0.6em;
     gap: 10px;
    }
+   .buttons_count{
+    font-size: 1.1em !important;
+    
+    margin: 5px !important;
+    
+    
+   }
    
    p {
-    font-size: 1.5em;
+    font-size: 1.2em;
    }
    .imagen{
     width: 130px;
-    
-   
+   }
+   .buttons_count_box{
+    justify-content: flex-start;
     
    }
    .movie_texts{
-    width: fit-content;
+    width: 60%;
+    font-size: 1.1em;
 }
   }
 .movie_texts p{
