@@ -10,9 +10,14 @@
 }
 .navbar_movile{
   height: fit-content !important;
+  color: black;
 }
 .button_logout{
   width: fit-content;
   margin-top: 10px;
 }
+.navbar{
+  background-color: rgb(154, 154, 154) !important;
+}
+
   

@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import { getMovies } from "./redux/tools";
 import { setMovies } from "./redux/moviesSlice";
 import MovieDetail from "./components/movies/MovieDetail";
+import ADHome from "./components/admin/ADHome";
 
 axios.defaults.withCredentials = true;
 
@@ -60,6 +61,7 @@ function App() {
         <Route path="/login" element={<LoginREG />} />
         <Route path="/login/create" element={<LoginREG isCreate={true} />} />
         <Route path="/movie/:id" element={<MovieDetail />}/>
+        <Route path="/admin" element={<ADHome/>}/>
       </Routes>
     </div>
   );

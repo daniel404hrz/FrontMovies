@@ -29,6 +29,7 @@
         justify-content: center;
         flex-wrap: wrap;
         margin: 30px;
+        margin-top: 10px;
         
     }
     .card_box button{

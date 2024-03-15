@@ -1,0 +1,10 @@
+.button_close{
+ 
+ align-self: flex-end;
+  
+}
+.button_open{
+  position: absolute !important;
+  left: 20px;
+  top: 12vh;
+}

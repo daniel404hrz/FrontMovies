@@ -25,12 +25,13 @@ export default function NavbarMovile({ user, logout }) {
     compras: "/compras",
     rentas: "/rentas",
   };
-  const routesNoun = ["home", "login", "register", "user", "compras", "rentas"];
+  const routesNoun = ["home", "compras", "rentas"];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
+    <Navbar isBlurred="false" className="bg-slate-400" onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent isBlurred="false">
         <NavbarMenuToggle
+          isBlurred="false"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className={styles.navbar_movile}
         />
@@ -39,11 +40,9 @@ export default function NavbarMovile({ user, logout }) {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link to>Login</Link>
-        </NavbarItem>
-        <NavbarItem>
+      <NavbarContent justify="end" >
+       
+        <NavbarItem className="bg-slate-400">
           {user.userLocal.login ? (
             <Button
               className="mr-4"
@@ -61,24 +60,26 @@ export default function NavbarMovile({ user, logout }) {
             </Link>
           )}
         </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
+      </NavbarContent  >
+      <NavbarMenu className="bg-slate-400">
         {routesNoun.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link  className="w-full" to={routes[item]}>
+            <Link className="w-full"  to={routes[item]}>
               {item}
             </Link>
           </NavbarMenuItem>
         ))}
-        {!user.userLocal.login ?
-        
-        <Button onClick={()=>navigate(routes.register)} className={styles.button_logout} color="success" variant="bordered" startContent={<UserIcon/>}>
-        log in
-      </Button>
-    
-        : <Button onClick={()=>logout()} className={styles.button_logout} color="danger" variant="bordered" startContent={<UserIcon/>}>
-        log out
-      </Button>}
+        <Button
+          onClick={() =>
+            !user.userLocal.login ? navigate(routes.register) : logout()
+          }
+          className={styles.button_logout}
+          color={!user.userLocal.login ? "success" : "danger"}
+          variant="bordered"
+          startContent={<UserIcon />}
+        >
+          {!user.userLocal.login ? "Register" : "Log Out"}
+        </Button>
       </NavbarMenu>
     </Navbar>
   );
